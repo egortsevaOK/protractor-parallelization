@@ -1,8 +1,6 @@
 const expect = require('chai').expect;
-const HomePage = require('./pages/home_page');
-const SpanishBilingualPage = require('./pages/spanish-bilingual_page');
-const SigninPage = require('./pages/signin_page');
-const CartPage = require('./pages/cart_page');
+const PageFactory = require('./pages/pageFactory');
+
 
 describe('Scholastic App', function() {
   beforeEach(function() {
@@ -14,18 +12,18 @@ describe('Scholastic App', function() {
     browser.restart();
   });
   it('should add item to cart', async function() {
-    await HomePage.open();
-    await HomePage.Header.selectCategory('PROGRAMS, BOOKS & LIBRARIES');
-    await HomePage.Header.selectSubcategory('English Learners');
-    await SpanishBilingualPage.leftFilters.waitVisibilityOf(); // wait until filter section becomes visible
-    await SpanishBilingualPage.filterBy('GRADE');
-    await SpanishBilingualPage.checkOption();
-    await SpanishBilingualPage.pumpkinCircle.click();
-    await SpanishBilingualPage.itemAddedToCart.waitVisibilityOf(2000);// wait until popup with added to cart item becomes visible
-    await SpanishBilingualPage.checkoutButton.click();
-    await SigninPage.checkEmail('new_email@gmail.com');
-    await SigninPage.close();
-    await HomePage.Header.viewCart();
-    expect(await CartPage.getCartBannerText()).to.equal('Shopping Cart');
+    await PageFactory.getPage('Home').open();
+    await PageFactory.getPage('Home').Header.selectCategory('PROGRAMS, BOOKS & LIBRARIES');
+    await PageFactory.getPage('Home').Header.selectSubcategory('English Learners');
+    await PageFactory.getPage('SpanishBilingual').leftFilters.waitVisibilityOf(); // wait until filter section becomes visible
+    await PageFactory.getPage('SpanishBilingual').filterBy('GRADE');
+    await PageFactory.getPage('SpanishBilingual').checkOption();
+    await PageFactory.getPage('SpanishBilingual').pumpkinCircle.click();
+    await PageFactory.getPage('SpanishBilingual').itemAddedToCart.waitVisibilityOf(2000);// wait until popup with added to cart item becomes visible
+    await PageFactory.getPage('SpanishBilingual').checkoutButton.click();
+    await PageFactory.getPage('Signin').checkEmail('new_email@gmail.com');
+    await PageFactory.getPage('Signin').close();
+    await PageFactory.getPage('Home').Header.viewCart();
+    expect(await PageFactory.getPage('Cart').getCartBannerText()).to.equal('Shopping Cart');
   });
 });

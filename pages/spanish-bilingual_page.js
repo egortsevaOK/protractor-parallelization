@@ -24,4 +24,4 @@ class SpanishBilingualPage extends BasePage {
     return this.gradeTwelve.waitToBeSelected();
   }
 };
-module.exports = new SpanishBilingualPage();
+module.exports = SpanishBilingualPage;

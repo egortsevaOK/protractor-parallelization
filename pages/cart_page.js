@@ -10,4 +10,4 @@ class CartPage extends BasePage {
     return this.cartBanner.getText();
   }
 };
-module.exports = new CartPage();
+module.exports = CartPage;

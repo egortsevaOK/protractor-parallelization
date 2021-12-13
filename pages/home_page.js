@@ -9,4 +9,4 @@ class HomePage extends BasePage {
     return super.open(this.url);
   };
 }
-module.exports = new HomePage();
+module.exports = HomePage;

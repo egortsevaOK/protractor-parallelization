@@ -22,5 +22,4 @@ class SigninPage extends BasePage {
     await this.closeButton.click();
   }
 };
-
-module.exports = new SigninPage();
+module.exports = SigninPage;
