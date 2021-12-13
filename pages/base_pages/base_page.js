@@ -7,13 +7,8 @@ class BasePage {
   wait(waitInMilliseconds) {
     return browser.sleep(waitInMilliseconds);
   };
-  async getCurrenUrl() {
-    const currentUrl = browser.getCurrentUrl();
-    return currentUrl;
-  };
   open(url) {
     return browser.get(url);
   };
 };
-
 module.exports = BasePage;

@@ -8,15 +8,15 @@ class Header {
     this.cartButton = new Element('.sch-container .sch-cart-container');
     this.viewCartButton = new Element('.viewCartButton');
   };
-  selectCategory(category) {
-    this.navigationSections.mouseMoveByText(category);
+  async selectCategory(category) {
+    await this.navigationSections.mouseMoveByText(category);
     return this.sectionsDropDown.waitVisibilityOf(1000);
   };
   selectSubcategory(subcategory) {
     return this.subSections.clickElementByText(subcategory);
   };
-  viewCart() {
-    this.cartButton.mouseMove();
+  async viewCart() {
+    await this.cartButton.mouseMove();
     return this.viewCartButton.click();
   }
 };

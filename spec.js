@@ -9,7 +9,7 @@ describe('Scholastic App', function() {
     return browser.manage().window().maximize();
   });
   afterEach(function() {
-    browser.restart();
+    return browser.restart();
   });
   it('should add item to cart', async function() {
     await PageFactory.getPage('Home').open();
@@ -24,6 +24,7 @@ describe('Scholastic App', function() {
     await PageFactory.getPage('Signin').checkEmail('new_email@gmail.com');
     await PageFactory.getPage('Signin').close();
     await PageFactory.getPage('Home').Header.viewCart();
-    expect(await PageFactory.getPage('Cart').getCartBannerText()).to.equal('Shopping Cart');
+    const cartBanner = await PageFactory.getPage('Cart').getCartBannerText();
+    expect(cartBanner).to.equal('Shopping Cart');
   });
 });

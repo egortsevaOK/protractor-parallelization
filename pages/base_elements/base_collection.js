@@ -3,12 +3,10 @@ class Collection {
     this.collection = element.all(by.css(selector));
   };
   async getCount() {
-    const collectionCount = await this.collection.count();
-    return collectionCount;
+    return await this.collection.count();
   };
   async getTexts() {
-    const arrayOfCollectionTexts = await this.collection.getText();
-    return arrayOfCollectionTexts;
+    return await this.collection.getText();
   };
   async clickElementByText(textToClick) {
     const arrayOfElementTexts = await this.collection.getText();

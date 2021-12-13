@@ -10,16 +10,18 @@ class SigninPage extends BasePage {
     this.closeButton = new Element('#registration-close');
   };
   async checkEmail(email) {
-    await browser.switchTo().frame(await element(by.css('.loginframe')).getWebElement());
-    await browser.switchTo().frame(await element(by.id('loginIframe')).getWebElement());
-    this.emailField.sendKeys(email);
-    this.continueButton.waitToBeClickable(3000);
+    const loginFrame = '.loginframe';
+    const LoginIFrame = '#loginIframe';
+    await browser.switchTo().frame(await element(by.css(loginFrame)).getWebElement());
+    await browser.switchTo().frame(await element(by.css(LoginIFrame)).getWebElement());
+    await this.emailField.sendKeys(email);
+    await this.continueButton.waitToBeClickable(3000);
     return this.continueButton.check();
   };
   async close() {
-    browser.switchTo().defaultContent();
+    await browser.switchTo().defaultContent();
     await this.closeButton.waitVisibilityOf(1000);
-    await this.closeButton.click();
+    return this.closeButton.click();
   }
 };
 module.exports = SigninPage;

@@ -15,12 +15,12 @@ class SpanishBilingualPage extends BasePage {
   open() {
     return super.open(this.url);
   };
-  filterBy(parameter) {
-    this.leftFilters.waitVisibilityOf(3000);
+  async filterBy(parameter) {
+    await this.leftFilters.waitVisibilityOf(3000);
     return this.leftFilterItems.clickElementByText(parameter);
   }
-  checkOption() {
-    this.gradeTwelve.check();
+  async checkOption() {
+    await this.gradeTwelve.check();
     return this.gradeTwelve.waitToBeSelected();
   }
 };
