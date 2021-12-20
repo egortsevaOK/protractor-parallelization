@@ -4,3 +4,6 @@ mochawesome-report
 coverage
 jspm_packages/
 *.exe
+.eslintrc.json
+launch.json
+
