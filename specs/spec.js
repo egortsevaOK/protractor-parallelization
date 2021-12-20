@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const PageFactory = require('./pages/pageFactory');
+const PageFactory = require('../pages/pageFactory');
 
 
 describe('Scholastic App', function() {

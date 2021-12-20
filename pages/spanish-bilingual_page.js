@@ -1,6 +1,6 @@
 const BasePage = require('./base_pages/base_page');
-const Collection = require('./base_elements/base_collection');
-const Element = require('./base_elements/base_element');
+const Collection = require('../utils/base_collection');
+const Element = require('../utils/base_element');
 
 class SpanishBilingualPage extends BasePage {
   constructor() {

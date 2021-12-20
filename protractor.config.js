@@ -5,7 +5,7 @@ exports.config = {
     directConnect: true,
     framework: 'mocha',
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    specs: ['spec.js'],
+    specs: ['./specs/spec.js'],
     capabilities: {'browserName': 'chrome'},
     SELENIUM_PROMISE_MANAGER: false,
     //baseurl: 'localhost',

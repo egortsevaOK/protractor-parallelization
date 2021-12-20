@@ -1,5 +1,5 @@
-const Collection = require('../base_elements/base_collection');
-const Element = require('../base_elements/base_element');
+const Collection = require('../../utils/base_collection');
+const Element = require('../../utils/base_element');
 class Header {
   constructor() {
     this.navigationSections = new Collection('ul.horizontal-nav-list a.horizontal-nav-item');
