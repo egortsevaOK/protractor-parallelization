@@ -1,7 +1,6 @@
 const expect = require('chai').expect;
 const PageFactory = require('../pages/pageFactory');
 
-
 describe('Scholastic App', function() {
 
   beforeEach(function() {
@@ -14,7 +13,7 @@ describe('Scholastic App', function() {
     return browser.restart();
   });
   
-  it('should add item to cart', async function() {
+  it('should select book for eng learners', async function() {
     await PageFactory.getPage('Home').open();
     await PageFactory.getPage('Home').Header.selectCategory('PROGRAMS, BOOKS & LIBRARIES');
     await PageFactory.getPage('Home').Header.selectSubcategory('English Learners');
