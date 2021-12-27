@@ -8,6 +8,11 @@ exports.config = {
       shardTestFiles: yargs.instances > 1,
       maxInstances: yargs.instances || 1,      
     },
+    suites: {
+      first: './specs/first_suite.js',
+      second: './specs/second_suite.js',
+      third: './specs/third_suite.js'
+    },
     SELENIUM_PROMISE_MANAGER: false,
     baseurl: 'localhost',
     mochaOpts: {
