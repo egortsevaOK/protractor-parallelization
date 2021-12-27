@@ -4,9 +4,9 @@ exports.config = {
     framework: 'mocha',
     specs: ['./specs/*.js'],
     capabilities: {
-      'browserName': 'chrome',
+      browserName: yargs.browser || 'chrome',
       shardTestFiles: yargs.instances > 1,
-      maxInstances: yargs.instances || 1,
+      maxInstances: yargs.instances || 1,      
     },
     SELENIUM_PROMISE_MANAGER: false,
     baseurl: 'localhost',
