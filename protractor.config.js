@@ -1,17 +1,22 @@
-
-exports.config = {
-    
-    restartBrowserBetweenTests: true,
+const yargs = require('yargs').argv;
+exports.config = {   
     directConnect: true,
     framework: 'mocha',
-    seleniumAddress: 'http://localhost:4444/wd/hub',
-    specs: ['./specs/spec.js'],
-    capabilities: {'browserName': 'chrome'},
+    specs: ['./specs/*.js'],
+    capabilities: {
+      browserName: yargs.browser || 'chrome',
+      shardTestFiles: yargs.instances > 1,
+      maxInstances: yargs.instances || 1,      
+    },
+    suites: {
+      first: './specs/first_suite.js',
+      second: './specs/second_suite.js',
+      third: './specs/third_suite.js'
+    },
     SELENIUM_PROMISE_MANAGER: false,
-    //baseurl: 'localhost',
+    baseurl: 'localhost',
     mochaOpts: {
     reporter: 'spec', 
     timeout: 70000
-   
   }
   };
